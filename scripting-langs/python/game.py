@@ -4,7 +4,7 @@
 import random
 
 
-class Game:
+class GuessingGame:
     """
     Guessing game structure.
     """
@@ -58,5 +58,5 @@ class Game:
 
 
 if __name__ == "__main__":
-    game = Game()
+    game = GuessingGame()
     game.play()
