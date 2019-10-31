@@ -6,7 +6,7 @@
 
 
 /** Helper functions. */
-int check(int magic, int guess);
+static int check(int magic, int guess);
 
 
 /**
@@ -37,7 +37,7 @@ main(void) {
                 if (guess < 1 || guess > 100)
                     printf("WARN: valid input ∈ [1, 100]. Try again...\n");
                 else {
-                    printf("  You guess is... ");
+                    printf("  Your guess is... ");
                     if (check(magic, guess)) {
                         win = 1;
                         break;
@@ -52,6 +52,8 @@ main(void) {
         printf("You win! Congrats ;)\n");
     else
         printf("Sad to see you go ;(\n");
+
+    return 0;
 }
 
 
@@ -60,7 +62,7 @@ main(void) {
  * Check a guess against the magic number. Returns 1 if correct else 0.
  * 
  */
-int
+static int
 check(int magic, int guess) {
     if (guess == magic) {
         printf("Correct!\n");
