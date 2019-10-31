@@ -10,18 +10,21 @@
  * Game constructor.
  * 
  */
-GuessingGame::GuessingGame() {
+GuessingGame::GuessingGame()
+    : win(false) {
     magic = rand() % 100 + 1;
 }
 
 
 /**
  *
- * Check a guess against the magic number. Returns true if correct else false.
+ * Check a guess against the magic number & record this try.
+ * Returns true if correct else false.
  * 
  */
 bool
 GuessingGame::check(int guess) {
+    tries.push_back(guess);
     if (guess == magic) {
         std::cout << "Correct!" << std::endl;
         return true;
@@ -37,6 +40,24 @@ GuessingGame::check(int guess) {
 
 /**
  *
+ * Show game stats & reset game status.
+ * 
+ */
+void
+GuessingGame::stats() {
+    std::cout << "<Game stats>" << std::endl << "  You tried: ";
+    for (auto& num : tries)
+        std::cout << num << " ";
+    std::cout << std::endl << "  In total " << tries.size()
+              << " tries used." << std::endl;
+
+    tries.clear();
+    win = false;
+}
+
+
+/**
+ *
  * Gameplay logic.
  * 
  */
@@ -46,7 +67,6 @@ GuessingGame::play() {
 
     /** Guessing loop. */
     std::string buf;
-    bool win = false;
     while (true) {
         std::cout << "Enter an int ∈ [1, 100], or 'q' to quit: ";
         std::getline(std::cin, buf);
@@ -78,4 +98,5 @@ GuessingGame::play() {
         std::cout << "You win! Congrats ;)" << std::endl;
     else
         std::cout << "Sad to see you go ;(" << std::endl;
+    stats();
 }

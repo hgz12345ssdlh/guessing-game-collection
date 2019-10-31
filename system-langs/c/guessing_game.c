@@ -7,6 +7,7 @@
 
 /** Helper functions. */
 static int check(int magic, int guess);
+static void stats(int *tries, int len);
 
 
 /**
@@ -24,6 +25,7 @@ gg_play() {
     /** Guessing loop. */
     char buf[INPUT_BUF_SIZE], ipt[INPUT_BUF_SIZE];
     int win = 0;
+    int tries[RECORD_LENGTH], record_idx = 0;
     while (1) {
         printf("Enter an int ∈ [1, 100], or 'q' to quit: ");
         /** Wrap a `fgets` to handle empty inputs. */
@@ -41,6 +43,7 @@ gg_play() {
                 if (guess < 1 || guess > 100)
                     printf("WARN: valid input ∈ [1, 100]. Try again...\n");
                 else {
+                    tries[record_idx++] = guess;
                     printf("  Your guess is... ");
                     if (check(magic, guess)) {
                         win = 1;
@@ -56,12 +59,14 @@ gg_play() {
         printf("You win! Congrats ;)\n");
     else
         printf("Sad to see you go ;(\n");
+    stats(tries, record_idx);
 }
 
 
 /**
  *
- * Check a guess against the magic number. Returns 1 if correct else 0.
+ * Check a guess against the magic number.
+ * Returns 1 if correct else 0.
  * 
  */
 static int
@@ -76,4 +81,19 @@ check(int magic, int guess) {
             printf("Too large!\n");
         return 0;
     }
+}
+
+
+/**
+ *
+ * Show game stats
+ * 
+ */
+static void
+stats(int *tries, int len) {
+    printf("<Game stats>\n  You tried: ");
+    size_t i = 0;
+    for (i = 0; i < len; ++i)
+        printf("%d ", tries[i]);
+    printf("\n  In total %d tries used.\n", len);
 }

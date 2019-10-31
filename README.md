@@ -68,14 +68,32 @@ Assembly:
 **Normal behavior** is a guessing game where the player tries to guess a random integer between 1 to 100.
 
 ```
-TODO
+Welcome to Guanzhou's guessing game!
+Enter an int ∈ [1, 100], or 'q' to quit: 50
+  Your guess is... Too large!
+Enter an int ∈ [1, 100], or 'q' to quit: 25
+  Your guess is... Too large!
+Enter an int ∈ [1, 100], or 'q' to quit: 12
+  Your guess is... Too large!
+Enter an int ∈ [1, 100], or 'q' to quit: 6
+  Your guess is... Too small!
+Enter an int ∈ [1, 100], or 'q' to quit: 9
+  Your guess is... Too large!
+Enter an int ∈ [1, 100], or 'q' to quit: 7
+  Your guess is... Too small!
+Enter an int ∈ [1, 100], or 'q' to quit: 8
+  Your guess is... Correct!
+You win! Congrats ;)
+<Game stats>
+  You tried: 50 25 12 6 9 7 8
+  In total 7 tries used.
 ```
 
 > Binary search should be the best strategy overall, but you can get lucky sometimes ;)
 
-**Robustness requirements** under boundary conditions:
+**Robustness requirements** under boundary conditions are defined as the following:
 
-```bash
+```
 # Invalid input.
 Enter an int ∈ [1, 100], or 'q' to quit: e
 WARN: not a valid integer. Try again...
@@ -91,4 +109,10 @@ Enter an int ∈ [1, 100], or 'q' to quit:   50 \t
 # Empty input.
 Enter an int ∈ [1, 100], or 'q' to quit:        # Directly display a new prompt.
 Enter an int ∈ [1, 100], or 'q' to quit:
+
+# Start with 'q'.
+Enter an int ∈ [1, 100], or 'q' to quit: qewe   # Treat as quit signal as well.
+Sad to see you go :(
 ```
+
+All language versions must satisfy this specification.
