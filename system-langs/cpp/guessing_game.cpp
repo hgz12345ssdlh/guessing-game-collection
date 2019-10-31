@@ -51,9 +51,11 @@ GuessingGame::play() {
         std::cout << "Enter an int ∈ [1, 100], or 'q' to quit: ";
         std::getline(std::cin, buf);
         boost::trim(buf);
-        if (buf[0] == 'q')
+        if (buf.length() <= 0)  // Empty input.
+            continue;
+        if (buf[0] == 'q')      // Quit signal.
             break;
-        else if (buf[0] < '0' || buf[0] > '9')
+        if (buf[0] < '0' || buf[0] > '9')
             std::cerr << "WARN: not a valid integer. Try again..."
                       << std::endl;
         else {
