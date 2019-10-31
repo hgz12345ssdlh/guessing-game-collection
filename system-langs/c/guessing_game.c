@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <assert.h>
 #include "guessing_game.h"
 
 
@@ -26,16 +28,16 @@ gg_play() {
         printf("Enter an int ∈ [1, 100], or 'q' to quit: ");
         /** Wrap a `fgets` to handle empty inputs. */
         if (fgets(buf, sizeof(buf), stdin) != NULL) {
-            printf("!!N: %s\n", buf);
-            sscanf(buf, "%s", ipt);
-            printf("!!S: %s\n", ipt);
-            if (ipt[0] == 'q')
+            sscanf(buf, "%s\n", ipt);
+            if (strlen(ipt) <= 0)   /** Empty input. */
+                continue;
+            if (ipt[0] == 'q')      /** Quit signal. */
                 break;
-            else if (ipt[0] < '0' || ipt[0] > '9')
+            if ((ipt[0] < '0' || ipt[0] > '9') && ipt[0] != '-')
                 printf("WARN: not a valid integer. Try again...\n");
             else {
                 int guess;
-                sscanf(ipt, "%d", &guess);
+                assert(sscanf(ipt, "%d", &guess) == 1);
                 if (guess < 1 || guess > 100)
                     printf("WARN: valid input ∈ [1, 100]. Try again...\n");
                 else {

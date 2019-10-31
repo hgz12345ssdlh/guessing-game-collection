@@ -1,4 +1,4 @@
-#define INPUT_BUF_SIZE 32   // Max length of user input.
+#define INPUT_BUF_SIZE 64   // Max length of user input.
 
 
 /** Play the guessing game. */
