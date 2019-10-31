@@ -36,20 +36,21 @@ class GuessingGame:
         win = False
         while True:
             ipt = input("Enter an int ∈ [1, 100], or 'q' to quit: ").strip()
-            if ipt == 'q':
+            if len(ipt) == 0:   # Empty input.
+                continue
+            if ipt[0] == 'q':   # Quit signal.
                 break
-            else:
-                try:
-                    guess = int(ipt)
-                    if not 1 <= guess <= 100:
-                        print("WARN: valid input ∈ [1, 100]. Try again...")
-                    else:
-                        print("  You guess is... ", end='')
-                        if self.check(guess):
-                            win = True
-                            break
-                except ValueError:
-                    print("WARN: not a valid integer. Try again...")
+            try:
+                guess = int(ipt)
+                if not 1 <= guess <= 100:
+                    print("WARN: valid input ∈ [1, 100]. Try again...")
+                else:
+                    print("  You guess is... ", end='')
+                    if self.check(guess):
+                        win = True
+                        break
+            except ValueError:
+                print("WARN: not a valid integer. Try again...")
 
         if win:
             print("You win! Congrats ;)")
