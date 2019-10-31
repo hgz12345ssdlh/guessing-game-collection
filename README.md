@@ -13,7 +13,7 @@ Aimed to help me explore & touch new languages & technologies.
 System programming languages:
 
 - [x] C
-- [ ] C++
+- [x] C++
 - [ ] Rust
 - [ ] Go
 
@@ -30,7 +30,7 @@ Java & its variants:
 - [ ] Kotlin
 - [ ] Dart
 
-Web scripting languages (with sample page in HTML/CSS & SQL):
+Web scripting languages (with sample page in HTML/CSS):
 
 - [ ] JavaScript
 - [ ] TypeScript
@@ -61,3 +61,34 @@ Assembly:
 - [ ] x86
 - [ ] ARM
 - [ ] WebAssembly
+
+
+## Expected Behavior
+
+**Normal behavior** is a guessing game where the player tries to guess a random integer between 1 to 100.
+
+```
+TODO
+```
+
+> Binary search should be the best strategy overall, but you can get lucky sometimes ;)
+
+**Robustness requirements** under boundary conditions:
+
+```bash
+# Invalid input.
+Enter an int ∈ [1, 100], or 'q' to quit: e
+WARN: not a valid integer. Try again...
+
+# Out-of-range input.
+Enter an int ∈ [1, 100], or 'q' to quit: -141
+WARN: not a valid integer. Try again...
+
+# Allow leading & trailing whitespaces.
+Enter an int ∈ [1, 100], or 'q' to quit:   50 \t
+  Your guess is... Too large!
+
+# Empty input.
+Enter an int ∈ [1, 100], or 'q' to quit:        # Directly display a new prompt.
+Enter an int ∈ [1, 100], or 'q' to quit:
+```
