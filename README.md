@@ -21,7 +21,7 @@ Common scripting languages:
 
 - [x] Python
 - [ ] Ruby
-- [ ] Julia
+- [x] Julia
 - [ ] R
 
 Java & its variants:
