@@ -75,7 +75,7 @@ GuessingGame::play() {
             continue;
         if (buf[0] == 'q')      // Quit signal.
             break;
-        if (buf[0] < '0' || buf[0] > '9')
+        if ((buf[0] < '0' || buf[0] > '9') && buf[0] != '-')
             std::cerr << "WARN: not a valid integer. Try again..."
                       << std::endl;
         else {

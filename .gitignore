@@ -1,0 +1,8 @@
+# Compiled executables.
+**/game
+
+# Py.
+**/__pycache__/
+
+# Rust.
+**/target/
