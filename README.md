@@ -5,7 +5,7 @@
 
 A collection of the number guessing game in different languages - weekly update ;)
 
-Aimed to help me explore & touch new languages & technologies.
+Aimed to help me explore & touch new languages & technologies. Writing a simple game definitely cannot exploit the full advantages / disadvantages of a language, but should be a good start towards learning its pipeline of development and basic syntax.
 
 
 ## Progress List
@@ -14,7 +14,7 @@ System programming languages:
 
 - [x] C
 - [x] C++
-- [ ] Rust
+- [x] Rust
 - [ ] Go
 
 Common scripting languages:
