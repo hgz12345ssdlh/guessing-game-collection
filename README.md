@@ -63,6 +63,17 @@ Assembly:
 - [ ] WebAssembly
 
 
+## Testing
+
+Run the tester with Python3:
+
+```bash
+$ python3 test-all.py
+```
+
+This will give comprehensive tests for all language versions defined in `test-all.py`. Outputs will be strictly matched.
+
+
 ## Expected Behavior
 
 **Normal behavior** is a guessing game where the player tries to guess a random integer between 1 to 100.
