@@ -58,7 +58,7 @@ gg_play() {
     if (win)
         printf("You win! Congrats ;)\n");
     else
-        printf("Sad to see you go ;(\n");
+        printf("Sad to see you go :(\n");
     stats(tries, record_idx);
 }
 

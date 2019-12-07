@@ -76,12 +76,12 @@ GuessingGame::play() {
         if (buf[0] == 'q')      // Quit signal.
             break;
         if ((buf[0] < '0' || buf[0] > '9') && buf[0] != '-')
-            std::cerr << "WARN: not a valid integer. Try again..."
+            std::cout << "WARN: not a valid integer. Try again..."
                       << std::endl;
         else {
             int guess = std::stoi(buf);
             if (guess < 1 || guess > 100)
-                std::cerr << "WARN: valid input ∈ [1, 100]. Try again..."
+                std::cout << "WARN: valid input ∈ [1, 100]. Try again..."
                           << std::endl;
             else {
                 std::cout << "  Your guess is... ";
@@ -97,6 +97,6 @@ GuessingGame::play() {
     if (win)
         std::cout << "You win! Congrats ;)" << std::endl;
     else
-        std::cout << "Sad to see you go ;(" << std::endl;
+        std::cout << "Sad to see you go :(" << std::endl;
     stats();
 }

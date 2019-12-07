@@ -63,7 +63,7 @@ function play()
             if !(1 <= γ <= 100)
                 println("WARN: valid input ∈ [1, 100]. Try again...")
             else
-                print("  You guess is... ")
+                print("  Your guess is... ")
                 if check(λ, γ, tries)
                     win = true
                     break

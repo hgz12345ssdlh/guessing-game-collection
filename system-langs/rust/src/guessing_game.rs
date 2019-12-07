@@ -44,8 +44,8 @@ impl GuessingGame {
                     }
                     if let Ok(guess) = ipt.parse::<i32>() {
                         match guess {
-                            1...100 => {
-                                print!("  Your guess is...");
+                            1..=100 => {
+                                print!("  Your guess is... ");
                                 if self.check(guess) {
                                     self.win = true;
                                     break;
@@ -64,7 +64,7 @@ impl GuessingGame {
         // Ending message.
         match self.win {
             true  => println!("You win! Congrats ;)"),
-            false => println!("Sad to see you go ;("),
+            false => println!("Sad to see you go :("),
         }
         self.stats();
     }

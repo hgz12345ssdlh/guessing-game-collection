@@ -62,7 +62,7 @@ class GuessingGame:
                 if not 1 <= guess <= 100:
                     print("WARN: valid input ∈ [1, 100]. Try again...")
                 else:
-                    print("  You guess is... ", end='')
+                    print("  Your guess is... ", end='')
                     if self.check(guess):
                         self.win = True
                         break
