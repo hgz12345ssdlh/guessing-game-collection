@@ -5,6 +5,9 @@ use rand::Rng;
 use std::io::{self, Write};
 
 
+use crate::general_game::CLIGame;
+
+
 /// Guessing game struct.
 pub struct GuessingGame {
     magic: i32,         // Magic number to guess.
@@ -24,8 +27,42 @@ impl GuessingGame {
         }
     }
 
+    /// Check a guess against the magic number & record this try.
+    /// Returns true if correct else false.
+    fn check(&mut self, guess: i32) -> bool {
+        self.tries.push(guess);
+        if guess == self.magic {
+            println!("Correct!");
+            true
+        } else {
+            if guess < self.magic {
+                println!("Too small!");
+            } else if guess > self.magic {
+                println!("Too large!");
+            }
+            false
+        }
+    }
+
+    /// Show game stats & reset game status.
+    fn stats(&mut self) {
+        println!("<Game stats>");
+        print!("  You tried: ");
+        for num in &self.tries {
+            print!("{} ", num);
+        }
+        println!();
+        println!("  In total {} tries used.", self.tries.len());
+
+        self.tries.clear();
+        self.win = false;
+    }
+}
+
+impl CLIGame<i32> for GuessingGame {
+
     /// Play handler.
-    pub fn play(&mut self) {
+    fn play(&mut self) {
         println!("Welcome to Guanzhou's guessing game!");
 
         // Guessing loop.
@@ -67,36 +104,5 @@ impl GuessingGame {
             false => println!("Sad to see you go :("),
         }
         self.stats();
-    }
-
-    /// Check a guess against the magic number & record this try.
-    /// Returns true if correct else false.
-    fn check(&mut self, guess: i32) -> bool {
-        self.tries.push(guess);
-        if guess == self.magic {
-            println!("Correct!");
-            true
-        } else {
-            if guess < self.magic {
-                println!("Too small!");
-            } else if guess > self.magic {
-                println!("Too large!");
-            }
-            false
-        }
-    }
-
-    /// Show game stats & reset game status.
-    fn stats(&mut self) {
-        println!("<Game stats>");
-        print!("  You tried: ");
-        for num in &self.tries {
-            print!("{} ", num);
-        }
-        println!();
-        println!("  In total {} tries used.", self.tries.len());
-
-        self.tries.clear();
-        self.win = false;
     }
 }

@@ -55,6 +55,13 @@ games = {
         "cmd":      "cargo -q run",
         "clean":    "cargo -q clean",
     },
+
+    "Go": {
+        "path":     "system-langs/go",
+        "make":     "export GOPATH=$( pwd ); go build -o game",
+        "cmd":      "./game",
+        "clean":    "go clean; unset GOPATH"
+    }
 }
 
 
