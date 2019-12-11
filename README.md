@@ -15,7 +15,7 @@ System programming languages:
 - [x] C
 - [x] C++
 - [x] Rust
-- [ ] Go
+- [x] Go
 
 Common scripting languages:
 
